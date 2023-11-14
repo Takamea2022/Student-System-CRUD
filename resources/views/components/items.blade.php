@@ -15,7 +15,7 @@
     </form>
   </li>
 
-@else
+@else 
 
   <li>
     <a href="/login" class="block py-2 pr-4 pl-3">Sign In</a>

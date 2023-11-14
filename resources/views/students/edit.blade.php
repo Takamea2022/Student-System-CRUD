@@ -9,13 +9,13 @@
   <section class="mt-10">
     <form action="/student/{{$student->id}}" method="POST" class="flex flex-col">
 
-      @method('PUT')
+      @method("PUT")
 
       @csrf
 
       <div class="mb-6 pt-3 rounded bg-gray-200">
         <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2 ml-3">First Name</label>
-        <input type="text" name="first_name" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" autocomplete="off" value={{$student->first_name}}>
+        <input type="text" name="first_name" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" autocomplete="off" value="{{$student->first_name}}">
 
         @error('first_name')
           <p class="text-red-500 text-xs p-1">
@@ -27,7 +27,7 @@
  
       <div class="mb-6 pt-3 rounded bg-gray-200">
         <label for="last_name" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Last Name</label>
-        <input type="text" name="last_name" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" autocomplete="off" value={{$student->last_name}}>
+        <input type="text" name="last_name" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" autocomplete="off" value="{{$student->last_name}}">
 
         
         @error('last_name')
@@ -46,7 +46,6 @@
           <option value="Female" {{ $student->gender == "Female" ? 'selected' : ''}}>Female</option>
         </select>
 
-        
         @error('gender')
           <p class="text-red-500 text-xs p-1">
             {{$message}}
@@ -56,7 +55,7 @@
 
       <div class="mb-6 pt-3 rounded bg-gray-200">
         <label for="age" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Age</label>
-        <input type="number" name="age" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" value={{$student->age}}>
+        <input type="number" name="age" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" value="{{$student->age}}">
         
         @error('age')
           <p class="text-red-500 text-xs p-1">
@@ -67,7 +66,7 @@
 
       <div class="mb-6 pt-3 rounded bg-gray-200">
         <label for="email" class="block text-gray-700 text-sm font-bold mb-2 ml-3">Email</label>
-        <input type="email" name="email" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" autocomplete="off" value={{$student->email}}>
+        <input type="email" name="email" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-400 px-3" autocomplete="off" value="{{$student->email}}">
         
         @error('email')
           <p class="text-red-500 text-xs p-1">
@@ -78,8 +77,17 @@
 
      
       <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition-duration-200" type="submit">Update</button>
+
     </form>
+
+    <form action="/student/{{$student->id}}" method="POST">
+      @method('delete')
+      @csrf
+
+      <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition-duration-200" type="submit">Delete</button>
   </section>
+    </form>
+    
 </main>
 
 

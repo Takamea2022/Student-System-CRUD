@@ -17,11 +17,12 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/',[StudentController::class, 'index'])->middleware('auth');
-
 Route::get('/add/student',[StudentController::class, 'create']);
 Route::post('/add/student',[StudentController::class, 'store']);
 Route::get('/student/{id}',[StudentController::class, 'show']);
-Route::put('/student/{id}',[StudentController::class, 'update']);
+Route::put('/student/{student}',[StudentController::class, 'update']);
+Route::delete('/student/{student}',[StudentController::class, 'destroy']);
+
 
 Route::get('/register', [UserController::class, 'register']);
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
